@@ -171,3 +171,170 @@ technologies.forEach(element => {
 const mapArray = technologies.map(element => element);
 console.log(mapArray);
 ```
+
+### Functions
+
+```js
+// Function Declaration
+function greeting(message = 'Hello world!', name = '') {
+  console.log(`${message} ${name}`);
+}
+
+greeting();
+greeting('Hello', 'Gael');
+
+// Function Expression
+const greeting = function (message = 'Hello world!', name = '') {
+  console.log(`${message} ${name}`);
+};
+
+greeting();
+greeting('Hello', 'Gael');
+```
+
+#### Find the maximum
+
+The maxOfTwoNumbers function takes two numbers as arguments and returns the maximum.
+
+```js
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  }
+}
+
+maxOfTwoNumbers(48, 40);
+
+// Expected output: 48
+```
+
+#### Find the minimun
+
+The minOfTwoNumbers function takes two numbers as arguments and returns the minimum.
+
+```js
+const minOfTwoNumbers = (a, b) => {
+  if (a < b) {
+    return a;
+  } else {
+    return b;
+  }
+};
+
+minOfTwoNumbers(48, 40);
+
+// Expected output: 40
+```
+
+#### Find longest word
+
+The findLongestWord function takes an array of words and returns the longest one. If there are two with the same length, it should return the first occurrence.
+
+```js
+const words = ['Java', 'JavaScript', 'C++', 'HTML5', 'Python', 'CSS3'];
+
+function findLongestWord(array) {
+  let longestWord = array[0];
+  for (let i = 1; i < array.length; i++) {
+    if (array[i].length > longestWord.length) {
+      longestWord = array[i];
+    }
+  }
+  console.log(longestWord);
+  return longestWord;
+}
+
+findLongestWord(words);
+
+// Expected output: JavaScript
+```
+
+#### Calculating a Sum
+
+Calculating a sum is as simple as iterating over an array and adding up each of the elements.
+
+Semantically [reduce](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) is the best method to perform this operation.
+
+The sumArray function takes an array of numbers as a parameter, and calculates the sum of all its numbers.
+
+```js
+const numbers = [48, 40, 1, 29, 31, 20, 23, 26, 2, 19];
+
+function sumArray(array) {
+  if (array.length === 0) {
+    return 0;
+  }
+  const sum = array.reduce(function (a, b) {
+    return a + b;
+  });
+  return sum;
+}
+
+sumArray(numbers);
+
+// Expected output: 239
+```
+
+#### Calculate average
+
+The averageNumbers function takes an array of numbers and calculate the average of the numbers.
+
+```js
+const averageNumbersArray = [3, 6, 7, 5, 10, 4, 1, 9];
+
+function averageNumbers(array) {
+  if (array.length === 0) {
+    return;
+  }
+  const sum = array.reduce(function (a, b) {
+    return a + b;
+  });
+
+  const average = sum / array.length;
+
+  return average.toFixed(1);
+}
+
+averageNumbers(averageNumbersArray);
+
+// Expected output: 5.6
+```
+
+#### Count the number of times it is repeated
+
+The howManyTimes function takes an array of words as one argument, and a word to search for as the other. The function returns the number of times that word appears in the array.
+
+```js
+const technologies = [
+  'JavaScript',
+  'MongoDB',
+  'Node.js',
+  'Express',
+  'React',
+  'JavaScript',
+  'TypeScript',
+  'truth',
+  'JavaScript',
+  'Python',
+  'JavaScript',
+];
+
+function howManyTimes(array, word) {
+  if (array.length === 0) {
+    return false;
+  }
+  let counter = 0;
+  array.forEach(function (e) {
+    if (e === word) {
+      counter++;
+    }
+  });
+  return counter;
+}
+
+howManyTimes(technologies, 'JavaScript');
+
+// Expected output: 4
+```
