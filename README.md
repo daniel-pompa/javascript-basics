@@ -156,3 +156,18 @@ const technologies = [
 const [, , , mongodb, express, react, node] = technologies;
 console.log(mongodb, express, react, node);
 ```
+
+### Array iterators
+
+```js
+const technologies = ['JavaScript', 'MongoDB', 'Express', 'React', 'Node.js'];
+
+// Access each element
+technologies.forEach(element => {
+  console.log(element);
+});
+
+// Create a new array
+const mapArray = technologies.map(element => element);
+console.log(mapArray);
+```
