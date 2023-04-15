@@ -396,3 +396,37 @@ console.log(result);
 result = numbers.reduce((total, number) => number + total, 0);
 console.log(result);
 ```
+
+### Fetch API
+
+```js
+const url = 'https://jsonplaceholder.typicode.com/comments';
+
+const consultAPI = () => {
+  fetch(url)
+    .then(response => response.json())
+    .then(result => {
+      result.forEach(comment => {
+        console.log(comment);
+      });
+    });
+};
+```
+
+```js
+import API_KEY_GIPHY from './configuration.js';
+
+const request = fetch(
+  `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY_GIPHY}`
+);
+
+request
+  .then(res => res.json())
+  .then(({ data }) => {
+    const { url } = data.images.original;
+    const image = document.createElement('img');
+    image.src = url;
+    document.body.append(image);
+  })
+  .catch(console.error);
+```
