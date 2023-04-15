@@ -430,3 +430,58 @@ request
   })
   .catch(console.error);
 ```
+
+### Fetch API async - await
+
+```js
+const url = 'https://jsonplaceholder.typicode.com/users';
+
+const consultAPI = async () => {
+  const response = await fetch(url);
+  const result = await response.json();
+  result.forEach(comment => {
+    console.log(comment);
+  });
+};
+
+consultAPI();
+```
+
+```js
+import API_KEY_GIPHY from './configuration.js';
+
+const getGif = async () => {
+  try {
+    const apiKey = API_KEY_GIPHY;
+    const response = await fetch(
+      `https://api.giphy.com/v1/gifs/random?api_key=${apiKey}`
+    );
+    const { data } = await response.json();
+    const { url } = data.images.original;
+    const image = document.createElement('img');
+    image.src = url;
+    document.body.append(image);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+getGif();
+```
+
+### Fetch API async - await (Multiple calls)
+
+```js
+const url1 = 'https://jsonplaceholder.typicode.com/users';
+const url2 = 'https://jsonplaceholder.typicode.com/posts';
+
+const consultAPI = async () => {
+  const [response1, response2] = await Promise.all([fetch(url1), fetch(url2)]);
+  const result1 = await response1.json();
+  const result2 = await response2.json();
+  console.log(result1);
+  console.log(result2);
+};
+
+consultAPI();
+```
